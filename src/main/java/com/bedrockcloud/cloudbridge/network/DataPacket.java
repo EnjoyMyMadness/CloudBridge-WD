@@ -52,6 +52,7 @@ public class DataPacket
             final BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(s.getOutputStream()));
             bufferedWriter.write(this.encode());
             bufferedWriter.newLine();
+            bufferedWriter.flush();
             bufferedWriter.close();
             s.close();
         } catch (IOException e) {

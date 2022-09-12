@@ -37,7 +37,7 @@ public class ClientRequest extends Thread
             try {
                 line = this.dataInputStream.readLine();
                 if (line == null) {
-                    break;
+                    return;
                 }
                 CloudBridge.getPacketHandler().handleCloudPacket(CloudBridge.getPacketHandler().handleJsonObject(CloudBridge.getPacketHandler().getPacketNameByRequest(line), line), this);
             } catch (IOException e) {

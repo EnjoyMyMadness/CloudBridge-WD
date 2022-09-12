@@ -11,7 +11,7 @@ public class PlayerTextPacket extends DataPacket {
     public static final int TYPE_TITLE = 1;
     public static final int TYPE_POPUP = 2;
     public static final int TYPE_TIP = 3;
-    public static final int TYPE_ACTIONBAR = 4;
+    public static final int TYPE_TOAST = 4;
 
     @Override
     public String getPacketName() {
@@ -27,7 +27,6 @@ public class PlayerTextPacket extends DataPacket {
         final String msg = value2.replace("&", "§");
         final String value3 = msg.replace("\u00c2", "");
         final ProxiedPlayer proxiedPlayer = ProxyServer.getInstance().getPlayer(playerName);
-        System.out.println(playerName);
         if (proxiedPlayer != null) {
             if (type == 0) {
                 proxiedPlayer.sendMessage(value3);
