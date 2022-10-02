@@ -20,6 +20,7 @@ import com.bedrockcloud.cloudbridge.CloudBridge;
 import dev.waterdog.waterdogpe.plugin.Plugin;
 
 import java.io.File;
+import java.util.Locale;
 
 public class BedrockCore extends Plugin
 {
@@ -77,7 +78,7 @@ public class BedrockCore extends Plugin
         final ServerInfo oldServer = event.getPlayer().getServerInfo();
         if (oldServer != null) {
             final CloudPlayerChangeServerPacket packet = new CloudPlayerChangeServerPacket();
-            packet.playerName = event.getPlayer().getName();
+            packet.playerName = event.getPlayer().getName().toLowerCase(Locale.ROOT).replace(" ", "_");
             packet.server = server.getServerName();
             packet.pushPacket();
         }
@@ -86,7 +87,7 @@ public class BedrockCore extends Plugin
     public void onPlayerJoin(final PlayerLoginEvent event) {
         final ProxiedPlayer player = event.getPlayer();
         final ProxyPlayerJoinPacket packet = new ProxyPlayerJoinPacket();
-        packet.playerName = player.getName();
+        packet.playerName = player.getName().toLowerCase(Locale.ROOT).replace(" ", "_");
         packet.joinedServer = "Loading...";
         packet.address = String.valueOf(player.getAddress());
         packet.xuid = player.getXuid();
