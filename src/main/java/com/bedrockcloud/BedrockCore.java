@@ -60,7 +60,7 @@ public class BedrockCore extends Plugin
     
     public void onPlayerDisconnectListener(PlayerDisconnectEvent event) {
         final ProxyPlayerQuitPacket newpacket = new ProxyPlayerQuitPacket();
-        newpacket.playerName = event.getPlayer().getName();
+        newpacket.playerName = event.getPlayer().getName().toLowerCase(Locale.ROOT).replace(" ", "_");
         try {
             newpacket.leftServer = event.getPlayer().getServerInfo().getServerName();
         } catch (NullPointerException e) {
