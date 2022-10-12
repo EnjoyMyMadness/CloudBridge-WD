@@ -13,6 +13,7 @@ public class ProxyServerConnectPacket extends DataPacket
     @Override
     public String encode() {
         this.addValue("socketPort", CloudBridge.getSocketPort());
+        this.addValue("proxyPid", Math.toIntExact(ProcessHandle.current().pid()));
         return super.encode();
     }
 }
