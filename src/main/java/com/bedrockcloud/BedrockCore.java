@@ -4,9 +4,9 @@ import com.bedrockcloud.commands.HubCommand;
 import com.bedrockcloud.player.CustomPlayer;
 import dev.waterdog.waterdogpe.ProxyServer;
 import dev.waterdog.waterdogpe.event.defaults.PlayerPreLoginEvent;
+import dev.waterdog.waterdogpe.network.serverinfo.ServerInfo;
 import dev.waterdog.waterdogpe.player.ProxiedPlayer;
 import com.bedrockcloud.cloudbridge.network.packets.ProxyPlayerJoinPacket;
-import dev.waterdog.waterdogpe.network.serverinfo.ServerInfo;
 import com.bedrockcloud.cloudbridge.network.packets.CloudPlayerChangeServerPacket;
 import com.bedrockcloud.cloudbridge.network.packets.ProxyPlayerQuitPacket;
 import com.bedrockcloud.cloudbridge.network.packets.ProxyServerDisconnectPacket;
@@ -39,8 +39,8 @@ public class BedrockCore extends Plugin
         this.getProxy().getEventManager().subscribe(PreTransferEvent.class, this::listen);
         this.getProxy().getEventManager().subscribe(PlayerLoginEvent.class, this::onPlayerJoin);
         this.getProxy().getEventManager().subscribe(PlayerPreLoginEvent.class, this::onPreLogin);
-        getInstance().getProxy().setJoinHandler((IJoinHandler)(this.joinHandler = new JoinHandler()));
-        getInstance().getProxy().setReconnectHandler((IReconnectHandler)new ReconnectHandler(this.joinHandler));
+        getInstance().getProxy().setJoinHandler((IJoinHandler) (this.joinHandler = new JoinHandler()));
+        getInstance().getProxy().setReconnectHandler((IReconnectHandler) new ReconnectHandler(this.joinHandler));
         this.getProxy().getCommandMap().registerCommand(new HubCommand(this.joinHandler));
 
         final ServerInfo server = ProxyServer.getInstance().getServerInfo("lobby1");

@@ -9,6 +9,7 @@ com\bedrockcloud\cloudbridge\network\DataPacket.class
 com\bedrockcloud\cloudbridge\network\packets\PlayerKickPacket.class
 com\bedrockcloud\cloudbridge\network\packets\RegisterServerPacket.class
 com\bedrockcloud\cloudbridge\network\NetworkManager.class
+com\bedrockcloud\player\CustomPlayer.class
 com\bedrockcloud\cloudbridge\config\FileUtils.class
 com\bedrockcloud\cloudbridge\network\packets\UnregisterServerPacket.class
 com\bedrockcloud\BedrockCore.class

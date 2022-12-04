@@ -43,9 +43,13 @@
     <dependency>
       <groupId>dev.waterdog.waterdogpe</groupId>
       <artifactId>waterdog</artifactId>
-      <version>1.1.10-SNAPSHOT</version>
+      <version>1.2.3-SNAPSHOT</version>
       <scope>provided</scope>
       <exclusions>
+        <exclusion>
+          <artifactId>bstats-base</artifactId>
+          <groupId>org.bstats</groupId>
+        </exclusion>
         <exclusion>
           <artifactId>Yamler-Core</artifactId>
           <groupId>net.cubespace</groupId>
@@ -91,7 +95,7 @@
           <groupId>net.minecrell</groupId>
         </exclusion>
         <exclusion>
-          <artifactId>bedrock-v544</artifactId>
+          <artifactId>bedrock-v557</artifactId>
           <groupId>com.nukkitx.protocol</groupId>
         </exclusion>
         <exclusion>
